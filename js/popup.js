@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	}).done( function(msg) {
   		
   		var link = '<a href=' + msg.url + '> Kwotspirasyon by: Chuck Norris </a>';
-  		var h1 = '<img src="'+msg.icon_url +'" /> ' + link + '<br/>';
-  		var body = '<p>' + msg.value + '</p>';
+  		var h1 = '<img src="'+ msg.icon_url +'" /> ' + link + '<br/>';
+  		var body = '<p>' + '"' + msg.value + '"' + '</p>';
 
   		$('.twitter-share-button').attr('href', 'https://twitter.com/intent/tweet?text="' + msg.value + '"' + '&button_hashtag=kwotspirasyon&hashtags=chucknorris');
 
