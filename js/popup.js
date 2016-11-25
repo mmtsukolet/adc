@@ -25,6 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
   		$('.twitter-share-button').attr('href', 'https://twitter.com/intent/tweet?text="' + msg.value + '"' + '&button_hashtag=kwotspirasyon&hashtags=chucknorris');
 
   		$('.holder').html(h1 + body);
+
+  		var fbUrl = 'http://www.facebook.com/sharer/sharer.php?u={link}&title={title}&caption={caption}&description={description}'.replace('{link}', msg.url).replace('{title}', 'kwotspirasyon').replace('caption', 'Chuck norris').replace('description', msg.value);
+  		$('.share-fb').attr('href',fbUrl);
+
   	});
 
 });
