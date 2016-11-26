@@ -1,11 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
   
   	var rand_number = Math.floor(Math.random() * 50) + 1;
-	// var url = 'http://jsonplaceholder.typicode.com/posts/{rand_number}'.replace('{rand_number}', rand_number);
-	// var url = 'http://quotes.rest/bible/verse.json';
-	// var url = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand';
-	
 	var url = "https://api.chucknorris.io/jokes/random";
+
 	$.ajax({
 
 	  url: url,
@@ -18,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	}).done( function(msg) {
   		
-  		var link = '<a href=' + msg.url + '> Kwotspirasyon by: Chuck Norris </a>';
+  		var link = 'http://img-9gag-fun.9cache.com/photo/aeYg2Bq_700b_v2.jpg'; //'<a href=' + msg.url + '> Kwotspirasyon by: Chuck Norris </a>';
   		var h1 = '<img src="'+ msg.icon_url +'" /> ' + link + '<br/>';
   		var body = '<p>' + '"' + msg.value + '"' + '</p>';
 
@@ -26,9 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   		$('.holder').html(h1 + body);
 
-  		var fbUrl = 'http://www.facebook.com/sharer/sharer.php?u={link}&title={title}&caption={caption}&description={description}'.replace('{link}', msg.url).replace('{title}', 'kwotspirasyon').replace('caption', 'Chuck norris').replace('description', msg.value);
+  		var fbUrl = 'http://www.facebook.com/sharer/sharer.php?u={link}&title={title}&caption={caption}&description={description}'.replace('{link}', link).replace('{title}', 'kwotspirasyon').replace('caption', 'Chuck norris').replace('description', msg.value);
   		$('.share-fb').attr('href',fbUrl);
 
   	});
-
+  	
 });
