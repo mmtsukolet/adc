@@ -15,19 +15,24 @@ document.addEventListener('DOMContentLoaded', function () {
 	  }
 
 	}).done( function(json) {
-		$('.holder').html(json.text);
-		console.log(json.text)
-		return;
+		
   		
-  		var link = 'http://img-9gag-fun.9cache.com/photo/aeYg2Bq_700b_v2.jpg'; //'<a href=' + msg.url + '> Kwotspirasyon by: Chuck Norris </a>';
-  		var h1 = '<img src="'+ msg.icon_url +'" /> ' + link + '<br/>';
-  		var body = '<p>' + '"' + msg.value + '"' + '</p>';
+  		//var link = 'http://img-9gag-fun.9cache.com/photo/aeYg2Bq_700b_v2.jpg'; //'<a href=' + msg.url + '> Kwotspirasyon by: Chuck Norris </a>';
+  		var h1 = '<img src="'+ json.image_url +'" /> <br/>';
+  		var body = '<p>' + '"' + json.text + '"' + '</p>';
 
-  		$('.twitter-share-button').attr('href', 'https://twitter.com/intent/tweet?text="' + msg.value + '"' + '&button_hashtag=kwotspirasyon&hashtags=chucknorris');
+			$('.holder').html(h1 + body);
 
-  		$('.holder').html(h1 + body);
+  		$('.twitter-share-button')
+				.attr('href', 'https://twitter.com/intent/tweet?text="' 
+					+ json.text + '"' + '&button_hashtag=kwotspirasyon&hashtags=kwotspirasyon');
 
-  		var fbUrl = 'http://www.facebook.com/sharer/sharer.php?u={link}&title={title}&caption={caption}&description={description}'.replace('{link}', link).replace('{title}', 'kwotspirasyon').replace('caption', 'Chuck norris').replace('description', msg.value);
+  		var fbUrl = 'http://www.facebook.com/sharer/sharer.php?u={link}&title={title}&caption={caption}&description={description}'
+				.replace('{link}', json.image_url)
+				.replace('{title}', 'kwotspirasyon')
+				.replace('caption', 'kwotspirasyon.com')
+				.replace('description', json.text);
+
   		$('.share-fb').attr('href',fbUrl);
 
   	});
